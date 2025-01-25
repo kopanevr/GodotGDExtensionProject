@@ -16,6 +16,8 @@ public:
     void start(const std::chrono::steady_clock::duration& duration);
     void stop();
 
+    void reset();
+
     bool isFinished() const;
     bool isRunning() const;
 };

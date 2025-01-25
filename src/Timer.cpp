@@ -14,6 +14,11 @@ void Timer::stop()
     m_isRunning = false;
 }
 
+void Timer::reset()
+{
+    m_isRunning = false;
+}
+
 bool Timer::isFinished() const
 {
     if (m_isRunning == false)
