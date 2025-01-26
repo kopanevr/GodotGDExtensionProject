@@ -9,6 +9,7 @@
 
 #include <godot_cpp/core/memory.hpp>
 #include <godot_cpp/variant/string.hpp>
+#include <godot_cpp/core/class_db.hpp>
 
 // ОСНОВНОЕ ТЕЛО
 void SystemUIManager::_body()

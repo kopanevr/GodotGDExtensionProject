@@ -1,11 +1,12 @@
 #pragma once
 
-#include <godot_cpp/classes/node.hpp>
-#include <godot_cpp/core/class_db.hpp>
-#include <gen/include/godot_cpp/classes/label.hpp>
+#include <godot_cpp/classes/control.hpp>
+#include <godot_cpp/classes/label.hpp>
 
-class SystemUIManager final : public godot::Node
+class SystemUIManager final : public godot::Control
 {
+    GDCLASS(SystemUIManager, godot::Control)
+
 private:
     bool m_startUpState = false;
 
