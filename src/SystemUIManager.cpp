@@ -10,8 +10,8 @@
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/core/class_db.hpp>
 
-#define DURATION_0  (5)
-#define DURATION_1  (1)
+#define DURATION_0  (int64_t)(5)
+#define DURATION_1  (int64_t)(1)
 
 // ОСНОВНОЕ ТЕЛО
 void SystemUIManager::_body()
