@@ -10,8 +10,8 @@
 #include <godot_cpp/variant/string.hpp>
 #include <godot_cpp/core/class_db.hpp>
 
-#define DURATION_0  (int64_t)(5)
-#define DURATION_1  (int64_t)(1)
+#define DURATION_0  ((int64_t)(5))
+#define DURATION_1  ((int64_t)(1))
 
 // ОСНОВНОЕ ТЕЛО
 void SystemUIManager::_body()
@@ -19,8 +19,8 @@ void SystemUIManager::_body()
     static Timer timer_0 = Timer();
     static Timer timer_1 = Timer();
 
-    static unsigned score = 0U;
-    static unsigned health = 0U;
+    static unsigned int score = 0U;
+    static unsigned int health = 0U;
 
     static bool state_0 = true;
     static bool state_1 = true;
@@ -45,7 +45,7 @@ void SystemUIManager::_body()
 
         if (m_scoreLabel != nullptr)
         {
-            static std::string score_str = "Score: " + std::to_string(score);
+            std::string score_str = "Score: " + std::to_string(score);
 
             m_scoreLabel->set_text(godot::String(score_str.c_str()));
 
@@ -62,7 +62,7 @@ void SystemUIManager::_body()
 
         if (m_healthLabel != nullptr)
         {
-            static std::string health_str = "Health: " + std::to_string(health);
+            std::string health_str = "Health: " + std::to_string(health);
 
             m_healthLabel->set_text(godot::String(health_str.c_str()));
 
@@ -150,12 +150,14 @@ void SystemUIManager::startUp()
         m_scoreLabel->set_name("ScoreLabel");
         m_scoreLabel->set_text("Score: ");
         m_scoreLabel->set_uppercase(true);
-        m_scoreLabel->set_position(godot::Vector2(20, 10));
+        m_scoreLabel->add_theme_color_override("font_color", godot::Color(1.0F, 0.0F, 0.0F));
+        m_scoreLabel->set_position(godot::Vector2(20.0f, 20.0f));
 
         m_healthLabel->set_name("HealthLabel");
         m_healthLabel->set_text("Health: ");
         m_healthLabel->set_uppercase(true);
-        m_healthLabel->set_position(godot::Vector2(20, 50));
+        m_healthLabel->add_theme_color_override("font_color", godot::Color(1.0F, 0.0F, 0.0F));
+        m_healthLabel->set_position(godot::Vector2(20.0f, 60.0f));
 
         add_child(m_scoreLabel);
         add_child(m_healthLabel);

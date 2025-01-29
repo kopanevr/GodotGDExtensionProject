@@ -1,13 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3gbieccvssbo"]
+[gd_scene load_steps=13 format=3 uid="uid://b3gbieccvssbo"]
 
 [ext_resource type="Script" path="res://new_script.gd" id="1_d1u8w"]
 [ext_resource type="PackedScene" uid="uid://doppx178g8bua" path="res://canvas_layer.tscn" id="2_o04du"]
+[ext_resource type="Texture2D" uid="uid://bccwtk4r0h2gi" path="res://demo.exr" id="3_u246r"]
 
-[sub_resource type="Sky" id="Sky_jiaj0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsiww"]
+albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Environment" id="Environment_dtk21"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk2k5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qm88"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23leq"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl2f2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6het3"]
+lightmap_size_hint = Vector2i(12, 12)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6wpfd"]
+panorama = ExtResource("3_u246r")
+
+[sub_resource type="Sky" id="Sky_l62w5"]
+sky_material = SubResource("PanoramaSkyMaterial_6wpfd")
+
+[sub_resource type="Environment" id="Environment_b4jxv"]
 background_mode = 2
-sky = SubResource("Sky_jiaj0")
+sky = SubResource("Sky_l62w5")
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,25 +38,84 @@ sky = SubResource("Sky_jiaj0")
 script = ExtResource("1_d1u8w")
 scene = ExtResource("2_o04du")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_gsiww")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_tk2k5")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_4qm88")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_23leq")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -4, 4, 3.5)
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = SubResource("StandardMaterial3D_rl2f2")
+sides = 20
+ring_sides = 10
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_gsiww")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_tk2k5")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_4qm88")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -2.5)
+material_override = SubResource("StandardMaterial3D_23leq")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.5)
+material_override = SubResource("StandardMaterial3D_rl2f2")
+sides = 20
+ring_sides = 10
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 2.5)
+material_override = SubResource("StandardMaterial3D_gsiww")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 2.5)
+material_override = SubResource("StandardMaterial3D_tk2k5")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 2.5)
+material_override = SubResource("StandardMaterial3D_4qm88")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 2.5)
+material_override = SubResource("StandardMaterial3D_23leq")
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 2.5)
+material_override = SubResource("StandardMaterial3D_rl2f2")
+sides = 20
+ring_sides = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+lod_bias = 0.001
+mesh = SubResource("PlaneMesh_6het3")
+metadata/_edit_group_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -2, 5, 5)
+transform = Transform3D(0.965926, 0.183013, -0.183013, 0, 0.707107, 0.707107, 0.258819, -0.683013, 0.683013, -2, 5, 5)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.573576, -0.346189, 0.742404, 0, 0.906308, 0.422619, -0.819152, 0.242404, -0.519836, 7.5, 4, -5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dtk21")
+environment = SubResource("Environment_b4jxv")
