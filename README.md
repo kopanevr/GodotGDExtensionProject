@@ -1,5 +1,7 @@
 # **SIMPLE GODOT GDEXTENSION**
 
+![Godot Engine Version](https://img.shields.io/badge/GODOT-4.3-blue)
+
 ## ПРЕДИСЛОВИЕ
 
 Этот учебный проект предназначен для ознакомления с GDExtension API в игровом движке [Godot Engine](https://godotengine.org).
